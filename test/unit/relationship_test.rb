@@ -26,12 +26,12 @@ class RelationshipTest < ActiveSupport::TestCase
         assert_equal @francois, @event.actor
       end
 
-      should "set the subject to the relationship" do
-        assert_equal @francois.relationships.first, @event.subject
+      should "set the subject to the new friend" do
+        assert_equal @james, @event.subject
       end
 
-      should "set the secondary subject to the new friend" do
-        assert_equal @james, @event.secondary_subject
+      should "set the secondary subject to the relationship" do
+        assert_equal @francois.relationships.first, @event.secondary_subject
       end
 
       should "set the event type to 'friended'" do
@@ -57,11 +57,11 @@ class RelationshipTest < ActiveSupport::TestCase
       end
 
       should "set the subject to the relationship" do
-        # It's been deleted...  Oops!
+        assert_equal people(:francois), @event.subject
       end
 
       should "set the secondary subject to the old friend" do
-        assert_equal people(:francois), @event.secondary_subject
+        # It's been deleted...  Oops!
       end
 
       should "set the event type to 'unfriended'" do
