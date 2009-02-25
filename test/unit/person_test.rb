@@ -24,8 +24,9 @@ class PersonTest < ActiveSupport::TestCase
 
       should_change "@person.recent_events.count", :to => 1
 
-      context "where James friends someone else" do
+      context "where James friends someone else when James is my friend" do
         setup do
+          @person.friends << people(:james)
           people(:james).friends << Person.create!(:name => "Daniel")
         end
 
