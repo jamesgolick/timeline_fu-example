@@ -52,4 +52,40 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+#timeline-wrapper {
+  background: #eee;
+}
 
+#timeline {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0;
+  width: 30em;
+}
+
+#timeline li {
+  margin: .2em 0;
+  padding-left: 20px;
+  background: left center no-repeat;
+}
+
+#timeline li .timestamp {
+  display: block;
+  text-align: right;
+  font-size: 90%;
+  color: #666;
+}
+
+#timeline .friended {
+  background-image: url(../images/user_add.png);
+}
+
+#timeline .unfriended {
+  background-image: url(../images/user_delete.png);
+  background-color: red;
+  color: white;
+}
+
+#timeline .unfriended a {
+  color: white;
+}
