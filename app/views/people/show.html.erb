@@ -3,6 +3,7 @@
   <%=h @person.name %>
 </p>
 
+<%= render_timeline @person.events.after(2.days.ago) %>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
