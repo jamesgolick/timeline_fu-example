@@ -4,5 +4,5 @@ class Person < ActiveRecord::Base
 
   has_many :relationships
   has_many :friends, :through => :relationships
-  has_many :events, :class_name => "TimelineEvent", :as => :actor
+  has_many :events, :class_name => "TimelineEvent", :as => :actor, :order => "timeline_events.created_at DESC"
 end
