@@ -56,11 +56,11 @@ class RelationshipTest < ActiveSupport::TestCase
         assert_equal people(:james), @event.actor
       end
 
-      should "set the subject to the relationship" do
+      should "set the subject to the old fiend" do
         assert_equal people(:francois), @event.subject
       end
 
-      should "set the secondary subject to the old friend" do
+      should "set the secondary subject to the relationship" do
         # It's been deleted...  Oops!
       end
 
