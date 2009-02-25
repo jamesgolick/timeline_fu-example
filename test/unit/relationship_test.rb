@@ -7,4 +7,14 @@ class RelationshipTest < ActiveSupport::TestCase
   should_not_allow_mass_assignment_of :friend_id, :person_id
 
   should_belong_to :person, :friend
+
+  context "Adding another person as a friend" do
+    setup do
+      @francois = people(:francois)
+      @james    = people(:james)
+      @francois.friends << @james
+    end
+
+    should_change "TimelineEvent.count", :by => 1
+  end
 end
