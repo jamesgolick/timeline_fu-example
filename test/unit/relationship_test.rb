@@ -35,4 +35,12 @@ class RelationshipTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "Deleting the relationship" do
+    setup do
+      relationships(:james_to_francois).destroy
+    end
+
+    should_change "TimelineEvent.count", :by => 1
+  end
 end
