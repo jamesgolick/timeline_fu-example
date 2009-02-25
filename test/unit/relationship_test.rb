@@ -42,5 +42,27 @@ class RelationshipTest < ActiveSupport::TestCase
     end
 
     should_change "TimelineEvent.count", :by => 1
+
+    context "the timeline event" do
+      setup do
+        @event = TimelineEvent.last
+      end
+
+      should "set the actor to the person who destroyed the friendship" do
+        assert_equal people(:james), @event.actor
+      end
+
+      should "set the subject to the relationship" do
+        # It's been deleted...  Oops!
+      end
+
+      should "set the secondary subject to the old friend" do
+        assert_equal people(:francois), @event.secondary_subject
+      end
+
+      should "set the event type to 'unfriended'" do
+        assert_equal "unfriended", @event.event_type
+      end
+    end
   end
 end
