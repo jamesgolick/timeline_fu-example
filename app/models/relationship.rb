@@ -5,5 +5,5 @@ class Relationship < ActiveRecord::Base
   validates_presence_of :person_id, :friend_id
   attr_accessible :person, :friend
 
-  fires :friended, :on => :create
+  fires :friended, :on => :create, :actor => :person, :secondary_subject => :friend
 end
