@@ -8,4 +8,10 @@ Relationships create timeline events.
 
 See the accompanying article at giraffesoft's blog:  "How to Use TimelineFu: Building a timeline for a social application":http://giraffesoft.ca/blog/2009/02/25/how-to-use-timelinefu-building-a-timeline-for-a-social-application.html
 
+After downloading, run:
+
+  rake db:create db:bootstrap
+
+to setup your database with some default data.
+
 Released under the MIT License.  See the LICENSE file for details.
