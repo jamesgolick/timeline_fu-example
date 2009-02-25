@@ -1,0 +1,22 @@
+<h1>Listing relationships</h1>
+
+<table>
+  <tr>
+    <th>Person</th>
+    <th>Friend</th>
+  </tr>
+
+<% for relationship in @relationships %>
+  <tr>
+    <td><%=h relationship.person_id %></td>
+    <td><%=h relationship.friend_id %></td>
+    <td><%= link_to 'Show', relationship %></td>
+    <td><%= link_to 'Edit', edit_relationship_path(relationship) %></td>
+    <td><%= link_to 'Destroy', relationship, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New relationship', new_relationship_path %>
