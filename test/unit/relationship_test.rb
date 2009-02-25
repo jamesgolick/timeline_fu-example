@@ -33,6 +33,10 @@ class RelationshipTest < ActiveSupport::TestCase
       should "set the secondary subject to the new friend" do
         assert_equal @james, @event.secondary_subject
       end
+
+      should "set the event type to 'friended'" do
+        assert_equal "friended", @event.event_type
+      end
     end
   end
 
