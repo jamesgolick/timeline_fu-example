@@ -16,5 +16,13 @@ class PersonTest < ActiveSupport::TestCase
     should "have an empty #recent_events feed" do
       assert @person.recent_events.empty?
     end
+
+    context "where James friends self" do
+      setup do
+        people(:james).friends << @person
+      end
+
+      should_change "@person.recent_events.count", :by => 1
+    end
   end
 end
