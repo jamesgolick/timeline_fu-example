@@ -16,5 +16,23 @@ class RelationshipTest < ActiveSupport::TestCase
     end
 
     should_change "TimelineEvent.count", :by => 1
+
+    context "the timeline event" do
+      setup do
+        @event = TimelineEvent.last
+      end
+
+      should "set the actor to be the person who created the friendship" do
+        assert_equal @francois, @event.actor
+      end
+
+      should "set the subject to the relationship" do
+        assert_equal @francois.relationships.first, @event.subject
+      end
+
+      should "set the secondary subject to the new friend" do
+        assert_equal @james, @event.secondary_subject
+      end
+    end
   end
 end
