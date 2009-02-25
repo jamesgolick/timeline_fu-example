@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class PersonTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should_have_valid_fixtures
+  should_require_attributes :name
+  should_allow_mass_assignment_of :name
+  should_not_allow_mass_assignment_of :created_at, :updated_at
+  should_have_many :relationships
+  should_have_many :friends
 end
