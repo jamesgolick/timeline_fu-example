@@ -6,4 +6,5 @@ class Relationship < ActiveRecord::Base
   attr_accessible :person, :friend
 
   fires :friended, :on => :create, :actor => :person, :secondary_subject => :friend
+  fires :unfriended, :on => :destroy, :actor => :person, :secondary_subject => :friend
 end
