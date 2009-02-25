@@ -3,7 +3,10 @@
   <%=h @person.name %>
 </p>
 
-<%= render_timeline @person.events.after(2.days.ago) %>
+<!-- This is an ordered list, as we present the items in order of reverse creation -->
+<ol>
+<%= render_timeline @person.recent_events %>
+</ol>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
