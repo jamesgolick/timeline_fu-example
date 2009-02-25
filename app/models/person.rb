@@ -4,4 +4,8 @@ class Person < ActiveRecord::Base
 
   has_many :relationships
   has_many :friends, :through => :relationships
+
+  def recent_events
+    []
+  end
 end
