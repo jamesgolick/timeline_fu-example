@@ -5,7 +5,5 @@ class Person < ActiveRecord::Base
   has_many :relationships
   has_many :friends, :through => :relationships
 
-  def recent_events
-    []
-  end
+  has_many :recent_events, :as => :subject, :class_name => "TimelineEvent", :order => "timeline_events.created_at DESC"
 end
