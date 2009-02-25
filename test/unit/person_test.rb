@@ -22,7 +22,15 @@ class PersonTest < ActiveSupport::TestCase
         people(:james).friends << @person
       end
 
-      should_change "@person.recent_events.count", :by => 1
+      should_change "@person.recent_events.count", :to => 1
+
+      context "where James friends someone else" do
+        setup do
+          people(:james).friends << Person.create!(:name => "Daniel")
+        end
+
+        should_change "@person.recent_events.count", :to => 2
+      end
     end
   end
 end
