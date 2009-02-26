@@ -16,8 +16,8 @@ class Person < ActiveRecord::Base
       :finder_sql  => 'SELECT timeline_events.* FROM timeline_events
                       WHERE ' + RECENT_EVENTS_CONDITION + '
                       ORDER BY timeline_events.created_at DESC',
-      :counter_sql => "SELECT COUNT(*) FROM timeline_events
-                      WHERE " + RECENT_EVENTS_CONDITION
+      :counter_sql => 'SELECT COUNT(*) FROM timeline_events
+                      WHERE ' + RECENT_EVENTS_CONDITION
 
   def to_s
     name
