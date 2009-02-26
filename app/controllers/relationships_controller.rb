@@ -40,7 +40,7 @@ class RelationshipsController < ApplicationController
   # POST /relationships
   # POST /relationships.xml
   def create
-    @relationship = Relationship.new(params[:relationship])
+    @relationship = Relationship.new(:person => Person.find(params[:relationship][:person_id]), :friend => Person.find(params[:relationship][:friend_id]))
 
     respond_to do |format|
       if @relationship.save
